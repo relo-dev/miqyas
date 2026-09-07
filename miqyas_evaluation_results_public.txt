@@ -1,0 +1,960 @@
+Running evaluation on 59 samples from miqyas_test.jsonl
+
+Sample 1/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 0 / 100
+Performance     : 90 / 100
+Clean Code      : 20 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Hardcoded secret '<TEST_ADMIN_TOKEN>' directly in source code
+  - Critical: Complete absence of any authentication mechanism on a sensitive admin endpoint
+  - Moderate: Minimal compliance with no structured logging or API versioning
+  - Minor: Code is not modular and lacks documentation
+Recommendation : Implement a secure authentication mechanism using environment variables for secrets and add structured logging for audit purposes.
+Expected Rating : Low
+Expected Score  : 8
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 2/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 100 / 100
+Clean Code      : 90 / 100
+DGA Compliance  : 50 / 100
+Issues:
+  - Critical: JWT verification bypassed with 'verify_signature=False' in function 'verify_token'
+Recommendation : Enable signature verification in the 'verify_token' function by setting 'verify_signature=True' and providing the appropriate secret or public key.
+Expected Rating : Low
+Expected Score  : 5
+Rating Match    : PASS
+Score Match     : PASS (diff=10)
+
+Sample 3/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 35 / 100
+Clean Code      : 35 / 100
+DGA Compliance  : 0 / 100
+Issues:
+  - Critical: SQL injection via direct string concatenation in get_user function
+  - Moderate: Missing input validation for username parameter
+  - Moderate: Missing error handling for database connection and query execution
+  - Minor: Hardcoded database file path 'db.sqlite3' in get_user function
+Recommendation : Use parameterized queries to prevent SQL injection in the get_user function.
+Expected Rating : Low
+Expected Score  : 10
+Rating Match    : PASS
+Score Match     : PASS (diff=5)
+
+Sample 4/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 10 / 100
+Performance     : 100 / 100
+Clean Code      : 100 / 100
+DGA Compliance  : 100 / 100
+Issues:
+  - Critical: Hardcoded secret 'SECRET_KEY' directly in source code
+  - Critical: Hardcoded database password 'DB_PASSWORD' directly in source code
+  - Critical: Hardcoded API token 'API_TOKEN' directly in source code
+Recommendation : Move all hardcoded secrets, passwords, and tokens to a secure environment variable management system.
+Expected Rating : Low
+Expected Score  : 6
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 5/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 0 / 100
+Performance     : 90 / 100
+Clean Code      : 35 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Hardcoded credentials ('admin'/'admin') in login endpoint
+  - Critical: Hardcoded token ('<TEST_ADMIN_TOKEN>') in login response
+  - Critical: Complete absence of authentication mechanism on sensitive endpoint
+Recommendation : Remove hardcoded credentials and token. Implement a secure authentication mechanism using environment variables for secrets and a proper token generation strategy.
+Expected Rating : Low
+Expected Score  : 4
+Rating Match    : PASS
+Score Match     : PASS (diff=6)
+
+Sample 6/59
+Rating      : Low
+Score       : 20 / 100
+Cybersecurity   : 90 / 100
+Performance     : 0 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Critical: O(n�) algorithm in process_data function on a large dataset of 100,000 records with zero mitigation
+Recommendation : Optimize the process_data function by using a dictionary to map parent_id to items, reducing the time complexity from O(n�) to O(n).
+Expected Rating : Low
+Expected Score  : 18
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 7/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 10 / 100
+Performance     : 90 / 100
+Clean Code      : 60 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Remote code execution vulnerability in run_command function due to subprocess.call(cmd, shell=True) with user input
+  - Moderate: Missing input validation for the 'cmd' parameter
+  - Moderate: Missing error handling for subprocess.call in run_command function
+  - Minor: Lack of structured logging in the run_command function
+Recommendation : Remove the use of shell=True in subprocess.call and implement strict input validation and sanitization for the 'cmd' parameter to prevent remote code execution.
+Expected Rating : Low
+Expected Score  : 2
+Rating Match    : PASS
+Score Match     : PASS (diff=8)
+
+Sample 8/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Path traversal vulnerability in '/file' endpoint due to unsanitized user input in 'res.sendFile(file)'
+Recommendation : Implement input validation and sanitization to prevent path traversal by restricting file paths to a specific directory.
+Expected Rating : Low
+Expected Score  : 12
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Sample 9/59
+Rating      : Low
+Score       : 20 / 100
+Cybersecurity   : 90 / 100
+Performance     : 10 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 50 / 100
+Issues:
+  - Critical: Nested N+1 query in get_users_with_orders function with no mitigation on a large dataset of 50,000 users
+Recommendation : Implement eager loading or batch processing to mitigate the N+1 query issue in the get_users_with_orders function.
+Expected Rating : Low
+Expected Score  : 20
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 10/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 10 / 100
+Performance     : 90 / 100
+Clean Code      : 70 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Remote code execution via pickle.loads on user input in load() function
+Recommendation : Replace pickle.loads with a safe deserialization method that does not execute arbitrary code, such as using JSON for deserialization.
+Expected Rating : Low
+Expected Score  : 3
+Rating Match    : PASS
+Score Match     : PASS (diff=7)
+
+Sample 11/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Reflected XSS in /report endpoint due to unsanitized user input directly injected into HTML
+Recommendation : Sanitize user input by escaping HTML special characters in the /report endpoint to prevent XSS attacks.
+Expected Rating : Low
+Expected Score  : 15
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 12/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 90 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: SQL injection risk due to direct string concatenation in delete_record function
+Recommendation : Use parameterized queries to prevent SQL injection in the delete_record function.
+Expected Rating : Low
+Expected Score  : 9
+Rating Match    : PASS
+Score Match     : PASS (diff=6)
+
+Sample 13/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 10 / 100
+Performance     : 90 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: JWT token generated with alg=none in make_token function
+  - Critical: Hardcoded fallback secret '<TEST_FALLBACK_SECRET>' in make_token function
+Recommendation : Use a secure algorithm like HS256 for JWT encoding and ensure the secret key is securely managed through environment variables without hardcoded fallbacks.
+Expected Rating : Low
+Expected Score  : 5
+Rating Match    : PASS
+Score Match     : PASS (diff=5)
+
+Sample 14/59
+Rating      : Low
+Score       : 18 / 100
+Cybersecurity   : 90 / 100
+Performance     : 5 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Critical: Loading entire 2GB file into memory in load_all function without any mitigation
+Recommendation : Implement streaming or batching to process the CSV file in chunks instead of loading it entirely into memory.
+Expected Rating : Low
+Expected Score  : 22
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 15/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 0 / 100
+Performance     : 50 / 100
+Clean Code      : 60 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: SQL injection via direct string concatenation in the query on line 3
+  - Critical: Complete absence of authentication on a citizen data endpoint
+  - Moderate: Missing error handling for the database query callback
+Recommendation : Implement authentication and parameterized queries to prevent SQL injection and unauthorized access to citizen data.
+Expected Rating : Low
+Expected Score  : 7
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Sample 16/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 55 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing authentication on the '/api/v1/users' endpoint.
+  - Moderate: No structured audit logging present for the '/api/v1/users' endpoint.
+Recommendation : Implement authentication and structured audit logging for the '/api/v1/users' endpoint to ensure secure access and traceability.
+Expected Rating : Medium
+Expected Score  : 50
+Rating Match    : PASS
+Score Match     : PASS (diff=8)
+
+Sample 17/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 45 / 100
+Performance     : 90 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing try-catch block around JWT verification in verifyUser function
+  - Moderate: Missing rate limiting on the /profile endpoint
+  - Moderate: No structured logging present for the /profile endpoint
+Recommendation : Add a try-catch block around the jwt.verify call in the verifyUser function to handle token verification errors gracefully.
+Expected Rating : Medium
+Expected Score  : 55
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Sample 18/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 45 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 55 / 100
+Issues:
+  - Moderate: Missing pagination on employee search results, which can lead to performance issues on large datasets.
+  - Moderate: LIKE query on Employee.name without an index, which can cause slow performance on large tables.
+Recommendation : Implement pagination for the employee search results to improve performance and prevent potential slowdowns on large datasets.
+Expected Rating : Medium
+Expected Score  : 45
+Rating Match    : PASS
+Score Match     : PASS (diff=13)
+
+Sample 19/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 45 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 50 / 100
+Issues:
+  - Moderate: Error message exposure in the catch block of the document creation endpoint, leaking internal error details via err.message
+  - Moderate: Missing structured audit logging for the document creation action
+Recommendation : Replace the error message exposure with a generic error message and implement structured audit logging with fields such as action, user_id, and resource.
+Expected Rating : Medium
+Expected Score  : 58
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 20/59
+Rating      : Medium
+Score       : 48 / 100
+Cybersecurity   : 35 / 100
+Performance     : 90 / 100
+Clean Code      : 60 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing input validation in process_request function
+  - Moderate: Missing type checks in process_request function
+  - Minor: Basic logging without structured fields in process_request function
+Recommendation : Implement input validation and type checks for the 'data' parameter in the process_request function to ensure data integrity and security.
+Expected Rating : Medium
+Expected Score  : 52
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 21/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 35 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 55 / 100
+Issues:
+  - Moderate: Missing pagination on the '/api/v1/reports' endpoint, which can lead to performance issues with large datasets.
+  - Moderate: No field filtering on the '/api/v1/reports' endpoint, potentially exposing unnecessary data.
+  - Minor: Missing structured audit logging for the '/api/v1/reports' endpoint.
+Recommendation : Implement pagination and field filtering on the '/api/v1/reports' endpoint to improve performance and data handling.
+Expected Rating : Medium
+Expected Score  : 48
+Rating Match    : PASS
+Score Match     : PASS (diff=10)
+
+Sample 22/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 35 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 65 / 100
+Issues:
+  - Moderate: Multiple separate DB queries in get_dashboard_stats function leading to potential N+1 query issue.
+Recommendation : Optimize the get_dashboard_stats function by combining queries or using aggregation to reduce the number of separate database calls.
+Expected Rating : Medium
+Expected Score  : 47
+Rating Match    : PASS
+Score Match     : PASS (diff=11)
+
+Sample 23/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 55 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing max length validation on password input in hashPassword function
+  - Moderate: No structured logging present in the utility
+Recommendation : Implement max length validation for the password input in the hashPassword function to prevent potential denial of service attacks with extremely long passwords.
+Expected Rating : Medium
+Expected Score  : 63
+Rating Match    : PASS
+Score Match     : PASS (diff=5)
+
+Sample 24/59
+Rating      : Medium
+Score       : 48 / 100
+Cybersecurity   : 35 / 100
+Performance     : 90 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing error handling in send_notification function
+  - Moderate: Missing rate limiting in send_notification function
+  - Moderate: No audit logging present in send_notification function
+Recommendation : Implement error handling and rate limiting in the send_notification function, and add structured audit logging to track notification events.
+Expected Rating : Medium
+Expected Score  : 44
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 25/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 35 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 65 / 100
+Issues:
+  - Moderate: Missing pagination on the permissions listing endpoint, which can lead to performance issues with large datasets.
+  - Minor: No caching mechanism implemented for the permissions listing endpoint.
+Recommendation : Implement pagination for the permissions listing endpoint to handle large datasets efficiently.
+Expected Rating : Medium
+Expected Score  : 56
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 26/59
+Rating      : Low
+Score       : 28 / 100
+Cybersecurity   : 90 / 100
+Performance     : 10 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 60 / 100
+Issues:
+  - Critical: N+1 query pattern in fetchAllOrders function with no mitigation on potentially large dataset
+Recommendation : Refactor the fetchAllOrders function to use eager loading with associations to eliminate the N+1 query pattern.
+Expected Rating : Low
+Expected Score  : 28
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 27/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 55 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 65 / 100
+Issues:
+  - Moderate: Missing error handling in the decrypt function
+Recommendation : Add try-except blocks to handle potential decryption errors in the decrypt function.
+Expected Rating : Medium
+Expected Score  : 65
+Rating Match    : PASS
+Score Match     : PASS (diff=7)
+
+Sample 28/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 40 / 100
+DGA Compliance  : 55 / 100
+Issues:
+  - Moderate: Use of magic numbers in calculate_risk_score function
+  - Moderate: No type hints provided in calculate_risk_score function
+  - Moderate: No documentation provided for calculate_risk_score function
+Recommendation : Refactor the calculate_risk_score function to replace magic numbers with named constants, add type hints, and include docstrings to improve code readability and maintainability.
+Expected Rating : Medium
+Expected Score  : 49
+Rating Match    : PASS
+Score Match     : PASS (diff=9)
+
+Sample 29/59
+Rating      : Medium
+Score       : 52 / 100
+Cybersecurity   : 45 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Mass assignment vulnerability in user.update(req.body) allowing unrestricted field updates.
+  - Moderate: Missing authorization check to verify if the authenticated user owns the resource being updated.
+  - Moderate: Error message leaking internal details with res.status(500).json({ error: e.message }).
+  - Moderate: No structured logging present for audit purposes.
+Recommendation : Implement an authorization check to ensure the authenticated user can only update their own data and use a whitelist approach to prevent mass assignment vulnerabilities.
+Expected Rating : Medium
+Expected Score  : 40
+Rating Match    : PASS
+Score Match     : PASS (diff=12)
+
+Sample 30/59
+Rating      : Low
+Score       : 18 / 100
+Cybersecurity   : 15 / 100
+Performance     : 10 / 100
+Clean Code      : 80 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Complete absence of ANY authentication mechanism on a sensitive endpoint (export_csv) that accesses or returns potentially sensitive data.
+  - Critical: CSV export utility with no size limit, leading to potential performance issues with large datasets.
+Recommendation : Implement authentication and authorization checks at the call site of the export_csv function to ensure only authorized users can access the data. Additionally, add pagination or batching to handle large datasets efficiently.
+Expected Rating : Low
+Expected Score  : 28
+Rating Match    : PASS
+Score Match     : PASS (diff=10)
+
+Sample 31/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 55 / 100
+Performance     : 90 / 100
+Clean Code      : 90 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing authentication mechanism on the fetch_citizen_data function, which accesses sensitive citizen data.
+  - Moderate: Logging is unstructured and lacks critical fields such as action and resource.
+Recommendation : Implement an authentication mechanism to ensure that only authorized users can access the fetch_citizen_data function.
+Expected Rating : Low
+Expected Score  : 22
+Rating Match    : FAIL
+Score Match     : FAIL (diff=36)
+
+Sample 32/59
+Rating      : Medium
+Score       : 66 / 100
+Cybersecurity   : 90 / 100
+Performance     : 75 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing structured audit logging for the /api/v1/profile endpoint
+  - Minor: No bilingual response support for the /api/v1/profile endpoint
+  - Minor: No Hijri date handling in the /api/v1/profile endpoint
+Recommendation : Implement structured audit logging with fields such as action, user_id, and resource for the /api/v1/profile endpoint to improve traceability and compliance with Saudi DGA standards.
+Expected Rating : High
+Expected Score  : 82
+Rating Match    : FAIL
+Score Match     : FAIL (diff=16)
+
+Sample 33/59
+Rating      : High
+Score       : 85 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Minor: Missing bilingual response support in the API output
+  - Minor: Missing Hijri date handling in the API response
+Recommendation : Implement bilingual response support by including both English and Arabic messages in the API output.
+Expected Rating : High
+Expected Score  : 85
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 34/59
+Rating      : Medium
+Score       : 62 / 100
+Cybersecurity   : 75 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing structured audit logging for user creation action
+  - Minor: No bilingual response support in the API
+Recommendation : Implement structured audit logging with fields such as action, user_id, and timestamp for the user creation endpoint.
+Expected Rating : High
+Expected Score  : 84
+Rating Match    : FAIL
+Score Match     : FAIL (diff=22)
+
+Sample 35/59
+Rating      : Medium
+Score       : 66 / 100
+Cybersecurity   : 90 / 100
+Performance     : 55 / 100
+Clean Code      : 90 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing structured audit logging for service requests and responses.
+  - Moderate: No retry mechanism or backoff strategy for failed service requests.
+  - Minor: No bilingual response handling or Hijri date support.
+Recommendation : Implement structured audit logging with fields such as action, user_id, and resource for each service request and response.
+Expected Rating : High
+Expected Score  : 80
+Rating Match    : FAIL
+Score Match     : PASS (diff=14)
+
+Sample 36/59
+Rating      : High
+Score       : 85 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 80 / 100
+Issues:
+  - Minor: Missing bilingual response support in the API endpoint
+  - Minor: Missing Hijri date handling in the application submission process
+Recommendation : Implement bilingual response support by adding both English and Arabic messages in the API response.
+Expected Rating : High
+Expected Score  : 88
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Sample 37/59
+Rating      : High
+Score       : 88 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 90 / 100
+DGA Compliance  : 85 / 100
+Issues:
+  - Minor: Logging is set up but not actively used in the function.
+Recommendation : Implement structured logging within the get_submission_date function to capture action, user_id, and resource details for full DGA compliance.
+Expected Rating : High
+Expected Score  : 86
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 38/59
+Rating      : High
+Score       : 88 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 85 / 100
+Issues:
+  - Minor: Missing Hijri date handling in the audit log
+Recommendation : Implement Hijri date handling in the audit log to enhance compliance with Saudi DGA standards.
+Expected Rating : High
+Expected Score  : 91
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Sample 39/59
+Rating      : High
+Score       : 85 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 90 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Minor: Missing bilingual support for log messages
+  - Minor: Missing Hijri date handling in log entries
+Recommendation : Enhance the logging by adding bilingual support for log messages and consider including Hijri date handling if applicable.
+Expected Rating : High
+Expected Score  : 83
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 40/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Moderate: Missing structured audit logging for citizen registration data
+  - Minor: Missing bilingual response support
+  - Minor: Missing Hijri date handling for birth_date
+Recommendation : Implement structured audit logging with fields such as action, user_id, and resource to enhance traceability and compliance with Saudi DGA standards.
+Expected Rating : High
+Expected Score  : 82
+Rating Match    : FAIL
+Score Match     : FAIL (diff=24)
+
+Sample 41/59
+Rating      : High
+Score       : 88 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 88 / 100
+Issues:
+  - Minor: Missing bilingual support for log messages
+  - Minor: Missing Hijri date handling in the timestamp
+Recommendation : Enhance the audit logging by adding bilingual support for log messages and consider including Hijri date handling for the timestamp.
+Expected Rating : High
+Expected Score  : 80
+Rating Match    : PASS
+Score Match     : PASS (diff=8)
+
+Sample 42/59
+Rating      : High
+Score       : 85 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 80 / 100
+Issues:
+  - Minor: Missing bilingual response in the API endpoint
+  - Minor: Missing Hijri date handling in the API response
+Recommendation : Implement bilingual support for API responses to include both English and Arabic messages.
+Expected Rating : High
+Expected Score  : 87
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 43/59
+Rating      : Low
+Score       : 25 / 100
+Cybersecurity   : 90 / 100
+Performance     : 35 / 100
+Clean Code      : 10 / 100
+DGA Compliance  : 0 / 100
+Issues:
+  - Critical: Function 'x' uses fully cryptic single-letter names for function and all variables, with zero documentation or structure
+  - Moderate: Potential inefficiency due to lack of early exit in loop when condition is met
+  - Minor: No type hints provided for function parameters or return type
+Recommendation : Refactor the function 'x' to use meaningful names, add documentation, and provide type hints for parameters and return type.
+Expected Rating : Low
+Expected Score  : 25
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 44/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Complete absence of ANY authentication mechanism on a citizen-facing endpoint '/api/user'.
+  - Moderate: Missing error handling in the '/api/user' endpoint.
+Recommendation : Implement authentication middleware to secure the '/api/user' endpoint and add error handling to manage potential failures.
+Expected Rating : Low
+Expected Score  : 18
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Sample 45/59
+Rating      : Medium
+Score       : 52 / 100
+Cybersecurity   : 90 / 100
+Performance     : 35 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 60 / 100
+Issues:
+  - Moderate: Blocking synchronous request in async handler without timeout in sync_fetch function
+Recommendation : Refactor sync_fetch to use an asynchronous HTTP client like aiohttp to avoid blocking the async handler.
+Expected Rating : Medium
+Expected Score  : 38
+Rating Match    : PASS
+Score Match     : PASS (diff=14)
+
+Sample 46/59
+Rating      : Low
+Score       : 20 / 100
+Cybersecurity   : 90 / 100
+Performance     : 5 / 100
+Clean Code      : 70 / 100
+DGA Compliance  : 50 / 100
+Issues:
+  - Critical: Nested N+1 queries across Application, Document, and Review tables with no mitigation
+  - Moderate: Missing pagination on Application query
+  - Moderate: Missing pagination on Document query
+  - Moderate: Missing pagination on Review query
+Recommendation : Refactor the process_applications function to use eager loading with joins to eliminate the N+1 query pattern and implement pagination for the Application, Document, and Review queries.
+Expected Rating : Low
+Expected Score  : 22
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 47/59
+Rating      : Medium
+Score       : 62 / 100
+Cybersecurity   : 45 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Moderate: Missing ownership check on record deletion in the endpoint '/api/v1/records/:id'.
+  - Minor: Error handling in the catch block is generic and does not log the error details.
+Recommendation : Implement an ownership check to ensure that the user attempting to delete the record is authorized to do so.
+Expected Rating : Medium
+Expected Score  : 60
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 48/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 45 / 100
+Performance     : 75 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 50 / 100
+Issues:
+  - Moderate: Missing authentication and authorization check in get_reports_by_department function.
+  - Moderate: Missing total count of reports for pagination in get_reports_by_department function.
+  - Minor: Logging lacks structured fields like user_id and action details.
+Recommendation : Implement authentication and authorization checks to ensure only authorized users can access the reports.
+Expected Rating : Medium
+Expected Score  : 62
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 49/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Hardcoded SMTP password in source code (SMTP_PASS = '<TEST_SMTP_PASSWORD>')
+Recommendation : Remove the hardcoded SMTP password and use environment variables to securely manage sensitive credentials.
+Expected Rating : Low
+Expected Score  : 14
+Rating Match    : PASS
+Score Match     : PASS (diff=1)
+
+Sample 50/59
+Rating      : High
+Score       : 85 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 80 / 100
+Issues:
+  - Minor: Missing bilingual response for error messages
+  - Minor: Missing Hijri date handling in the audit log
+Recommendation : Implement bilingual support for error messages and consider adding Hijri date handling in the audit logs.
+Expected Rating : High
+Expected Score  : 89
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 51/59
+Rating      : Low
+Score       : 15 / 100
+Cybersecurity   : 15 / 100
+Performance     : 10 / 100
+Clean Code      : 35 / 100
+DGA Compliance  : 0 / 100
+Issues:
+  - Critical: SQL injection via direct string concatenation in getData function
+  - Critical: N+1 query pattern in proc function with getData call inside loop
+  - Critical: No structured logging or compliance infrastructure present
+Recommendation : Implement parameterized queries in getData to prevent SQL injection and refactor proc to batch process data or use eager loading to avoid N+1 queries.
+Expected Rating : Low
+Expected Score  : 10
+Rating Match    : PASS
+Score Match     : PASS (diff=5)
+
+Sample 52/59
+Rating      : High
+Score       : 85 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 90 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Minor: Missing bilingual support in logging messages
+  - Minor: Missing Hijri date handling in token expiry
+Recommendation : Enhance the logging messages to include bilingual support (Arabic and English) and consider adding Hijri date handling for token expiry.
+Expected Rating : High
+Expected Score  : 90
+Rating Match    : PASS
+Score Match     : PASS (diff=5)
+
+Sample 53/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 0 / 100
+Performance     : 35 / 100
+Clean Code      : 60 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: SQL injection vulnerability in the /search endpoint due to direct string concatenation in the query.
+  - Critical: Complete absence of authentication on the /search endpoint, which accesses potentially sensitive product data.
+Recommendation : Implement parameterized queries to prevent SQL injection and add authentication to the /search endpoint to protect sensitive data.
+Expected Rating : Low
+Expected Score  : 12
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 54/59
+Rating      : Medium
+Score       : 58 / 100
+Cybersecurity   : 90 / 100
+Performance     : 35 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Moderate: N+1 insert pattern in bulk_notify function
+  - Minor: Use of __import__('datetime') instead of direct import
+Recommendation : Optimize the bulk_notify function to perform batch inserts instead of individual inserts to improve performance.
+Expected Rating : Medium
+Expected Score  : 58
+Rating Match    : PASS
+Score Match     : PASS (diff=0)
+
+Sample 55/59
+Rating      : Low
+Score       : 10 / 100
+Cybersecurity   : 10 / 100
+Performance     : 50 / 100
+Clean Code      : 50 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: SQL injection vulnerability due to direct string interpolation in the login query.
+Recommendation : Use parameterized queries or prepared statements to prevent SQL injection.
+Expected Rating : Low
+Expected Score  : 3
+Rating Match    : PASS
+Score Match     : PASS (diff=7)
+
+Sample 56/59
+Rating      : High
+Score       : 88 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 88 / 100
+Issues:
+  - Minor: The logger.info statement could include more structured fields such as resource_id and status for better traceability.
+Recommendation : Enhance the logger.info statement to include additional structured fields like resource_id and status for comprehensive logging.
+Expected Rating : High
+Expected Score  : 92
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 57/59
+Rating      : Low
+Score       : 20 / 100
+Cybersecurity   : 15 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 40 / 100
+Issues:
+  - Critical: Sensitive data exposure in /api/v1/status endpoint leaking DB URL
+  - Moderate: Advertising framework version via 'X-Powered-By' header
+Recommendation : Remove the DB URL from the /api/v1/status response to prevent sensitive data exposure.
+Expected Rating : Low
+Expected Score  : 16
+Rating Match    : PASS
+Score Match     : PASS (diff=4)
+
+Sample 58/59
+Rating      : High
+Score       : 78 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Minor: Hardcoded IP '0.0.0.0' in the audit log within the approve_application function
+Recommendation : Replace the hardcoded IP '0.0.0.0' with the actual IP address of the reviewer or the request origin.
+Expected Rating : High
+Expected Score  : 76
+Rating Match    : PASS
+Score Match     : PASS (diff=2)
+
+Sample 59/59
+Rating      : High
+Score       : 82 / 100
+Cybersecurity   : 90 / 100
+Performance     : 90 / 100
+Clean Code      : 85 / 100
+DGA Compliance  : 70 / 100
+Issues:
+  - Minor: Missing bilingual response in the API output
+  - Minor: Missing Hijri date handling in the audit log
+Recommendation : Implement bilingual support in the API response and consider adding Hijri date handling in the audit log.
+Expected Rating : High
+Expected Score  : 85
+Rating Match    : PASS
+Score Match     : PASS (diff=3)
+
+Evaluation Complete
+Total Samples       : 59
+Rating Accuracy     : 91.5% (54/59)
+Score Accuracy      : 93.2% (55/59) [tolerance=15]
+Target              : 90%
+Rating Status       : PASS
+Score Status        : PASS
+

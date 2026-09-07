@@ -1,0 +1,20 @@
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+
+node_modules/
+.next/
+out/
+dist/
+
+.vscode/
+.DS_Store
+
+*.log
+
+# Keep original evaluation data local
+miqyas_test.jsonl
+miqyas_evaluation_results.txt
