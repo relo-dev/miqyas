@@ -62,7 +62,7 @@ Miqyas was benchmarked against a custom **Golden Dataset** consisting of 59 manu
 
 ## Screenshots
 
-### Repository Upload
+### ZIP Upload
 ![Miqyas Upload Interface](docs/images/upload-interface.png)
 
 ### Evaluation Dashboard
