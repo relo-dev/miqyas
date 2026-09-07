@@ -1,814 +1,126 @@
-﻿# Miqyas AI
-
-
-
-
-
-
-
+# Miqyas AI
 ### Automated Static Code Analysis & DGA Compliance Evaluator for Saudi Government Applications
 
-
-
-
-
-
-
-Miqyas AI is an LLM-powered static code analysis system designed to evaluate software repositories before deployment in Saudi government environments.
-
-
-
-
-
-
-
-It combines AI-assisted source-code analysis with deterministic scoring and localized DGA/NDMO compliance rules to provide a structured assessment of software readiness.
-
-
-
-
-
-
+**Miqyas AI** is an LLM-powered static code analysis system designed to evaluate software repositories before deployment in Saudi government environments. It combines AI-assisted source-code analysis with deterministic scoring and localized DGA/NDMO compliance rules to provide a structured assessment of software readiness.
 
 ---
-
-
-
-
-
-
 
 ## Overview
 
-
-
-
-
-
-
 Miqyas evaluates submitted source-code repositories across four weighted dimensions:
 
-
-
-
-
-
-
 | Evaluation Pillar | Weight |
+| :--- | :--- |
+| **Cybersecurity** | 30% |
+| **Software Performance** | 25% |
+| **Clean Code & Architecture** | 25% |
+| **DGA / NDMO Compliance** | 20% |
 
-
-
-|---|---:|
-
-
-
-| Cybersecurity | 30% |
-
-
-
-| Software Performance | 25% |
-
-
-
-| Clean Code & Architecture | 25% |
-
-
-
-| DGA / NDMO Compliance | 20% |
-
-
-
-
-
-
-
-The system identifies potential issues, calculates pillar scores, applies mandatory security and compliance rules, and returns structured evaluation results with actionable recommendations.
-
-
-
-
-
-
+The system identifies potential issues, calculates pillar scores, applies mandatory security and compliance override rules, and returns structured evaluation results with actionable recommendations.
 
 ---
-
-
-
-
-
-
 
 ## Key Features
 
-
-
-
-
-
-
-- AI-powered static source-code analysis
-
-
-
-- Saudi-specific DGA and NDMO compliance evaluation
-
-
-
-- Cybersecurity and performance analysis
-
-
-
-- Clean-code and architecture assessment
-
-
-
-- Deterministic weighted scoring
-
-
-
-- Mandatory security and compliance override rules
-
-
-
-- Structured JSON responses
-
-
-
-- Secure in-memory repository extraction
-
-
-
-- 20 MB upload limit
-
-
-
-- 80,000-character evaluation budget
-
-
-
-- Interactive evaluation dashboard
-
-
-
-
-
-
+* **AI-Powered Code Analysis:** Static source-code auditing powered by domain-specific prompting.
+* **Saudi-Specific Compliance:** Built-in checks for DGA (Digital Government Authority) and NDMO controls.
+* **Deterministic Weighted Scoring:** Combined scoring formula reflecting industry and government priorities.
+* **Mandatory Override Safeguards:** Prevents critical security or compliance vulnerabilities from being masked by a high overall score.
+* **Structured Output:** Delivers findings, scores, and remediations in consistent JSON formats.
+* **Resource Management:** Secure in-memory extraction, 20 MB upload limit, and an 80,000-character budget per audit.
+* **Interactive Dashboard:** Modern web UI for repository submission and visualization of results.
 
 ---
 
-
-
-
-
-
-
 ## Architecture
-
-
-
-
-
-
 
 ![Miqyas AI Architecture](docs/images/architecture.png)
 
+The evaluation pipeline enforces deterministic behavior via strict model constraints:
+* **Sampling Settings:** `temperature=0.0`
+* **Output Enforcement:** `response_format={"type": "json_object"}`
 
+### Scoring Formulation
+$$\text{Overall Score} = (0.30 \times \text{Cybersecurity}) + (0.25 \times \text{Performance}) + (0.25 \times \text{Clean Code}) + (0.20 \times \text{DGA Compliance})$$
 
+> **Note:** Deterministic **Mandatory Override Rules** automatically trigger penalties or failures if critical vulnerabilities are flagged, ensuring high weighted averages cannot bypass critical compliance gates.
 
+---
 
-**Analysis pipeline:**
+## Evaluation & Benchmarks
 
+Miqyas was benchmarked against a custom **Golden Dataset** consisting of 59 manually engineered code samples:
 
+| Metric | Result |
+| :--- | :--- |
+| **Rating Accuracy** | 91.5% |
+| **Score Accuracy** | 93.2% |
+| **Golden Dataset Size** | 59 samples |
+| **Analysis Latency** | 8–14 seconds |
 
+---
 
+## Screenshots
 
-
-
-
-
-Source Repository
-
-
-
-&#x20;      â†“
-
-
-
-Next.js Frontend
-
-
-
-&#x20;      â†“
-
-
-
-FastAPI Backend
-
-
-
-&#x20;      â†“
-
-
-
-In-Memory Extraction \& Filtering
-
-
-
-&#x20;      â†“
-
-
-
-OpenAI GPT-4o
-
-
-
-&#x20;      â†“
-
-
-
-Structured JSON Evaluation
-
-
-
-&#x20;      â†“
-
-
-
-Weighted Scoring \& Override Rules
-
-
-
-&#x20;      â†“
-
-
-
-Results Dashboard
-
-
-
-AI \& Scoring
-
-
-
-
-
-
-
-Miqyas uses OpenAI's:
-
-
-
-
-
-
-
-gpt-4o-2024-08-06
-
-
-
-
-
-
-
-The model is guided by a constraint-driven system prompt containing the evaluation criteria, scoring requirements, and Saudi-specific compliance rules.
-
-
-
-
-
-
-
-The model runs with:
-
-
-
-
-
-
-
-temperature=0.0
-
-
-
-
-
-
-
-and returns structured JSON:
-
-
-
-
-
-
-
-response\_format={"type": "json\_object"}
-
-
-
-
-
-
-
-The overall score is calculated using:
-
-
-
-
-
-
-
-Overall Score =
-
-
-
-0.30 أ— Cybersecurity
-
-
-
-+ 0.25 أ— Performance
-
-
-
-+ 0.25 أ— Clean Code
-
-
-
-+ 0.20 أ— DGA Compliance
-
-
-
-
-
-
-
-Miqyas also uses deterministic Mandatory Override Rules to prevent critical security or compliance failures from being hidden by a high weighted average.
-
-
-
-
-
-
-
-Evaluation Results
-
-
-
-
-
-
-
-Miqyas was evaluated using a custom Golden Dataset of 59 manually engineered code samples.
-
-
-
-
-
-
-
-Metric	Result
-
-
-
-Rating Accuracy	91.5%
-
-
-
-Score Accuracy	93.2%
-
-
-
-Golden Dataset	59 samples
-
-
-
-Analysis Time	8â€“14 seconds
-
-
-
-Screenshots
-
+### Repository Upload
 ![Miqyas Upload Interface](docs/images/upload-interface.png)
 
-Repository Upload
-
-
-
-
-
+### Evaluation Dashboard
 ![Miqyas Results Dashboard](docs/images/results-dashboard.png)
 
-Evaluation Dashboard
-
-
-
-
-
+### Detailed Findings
 ![Miqyas Detailed Results](docs/images/results-details.png)
 
-Detailed Findings
+---
 
+## Running Locally
 
+### Backend Setup
 
+1. Install backend dependencies:
+```bash
+pip install -r miqyas_api/requirements.txt
+```
 
+2. Configure environment variables in `miqyas_api/.env`:
+```env
+OPENAI_API_KEY=your_api_key_here
+```
 
+3. Launch the API server:
+```bash
+uvicorn miqyas_api.main:app --reload
+```
 
+### Frontend Setup
 
-Technology Stack
-
-
-
-
-
-
-
-Frontend
-
-
-
-
-
-
-
-Next.js
-
-
-
-React
-
-
-
-TypeScript
-
-
-
-Tailwind CSS
-
-
-
-Recharts
-
-
-
-
-
-
-
-Backend
-
-
-
-
-
-
-
-Python
-
-
-
-FastAPI
-
-
-
-Uvicorn
-
-
-
-python-multipart
-
-
-
-
-
-
-
-AI \& Data
-
-
-
-
-
-
-
-OpenAI API
-
-
-
-GPT-4o
-
-
-
-Prompt Engineering
-
-
-
-Structured JSON
-
-
-
-JSON / JSONL
-
-
-
-Project Structure
-
-
-
-MiqyasProjectFinal/
-
-
-
-â”‚
-
-
-
-â”œâ”€â”€ miqyas.py
-
-
-
-â”œâ”€â”€ miqyas\_api/
-
-
-
-â”‚   â”œâ”€â”€ analyzer.py
-
-
-
-â”‚   â”œâ”€â”€ extractor.py
-
-
-
-â”‚   â”œâ”€â”€ main.py
-
-
-
-â”‚   â”œâ”€â”€ prompt.py
-
-
-
-â”‚   â””â”€â”€ requirements.txt
-
-
-
-â”‚
-
-
-
-â”œâ”€â”€ miqyas-ui/
-
-
-
-â”œâ”€â”€ docs/
-
-
-
-â”‚   â””â”€â”€ images/
-
-
-
-â”‚       â”œâ”€â”€ architecture.png
-
-
-
-â”‚       â”œâ”€â”€ upload-interface.png
-
-
-
-â”‚       â”œâ”€â”€ results-dashboard.png
-
-
-
-â”‚       â””â”€â”€ results-details.png
-
-
-
-â”‚
-
-
-
-â”œâ”€â”€ miqyas\_test\_public.jsonl
-
-
-
-â”œâ”€â”€ miqyas\_evaluation\_results\_public.txt
-
-
-
-â”œâ”€â”€ system\_prompt.txt
-
-
-
-â”œâ”€â”€ requirements.txt
-
-
-
-â””â”€â”€ README.md
-
-
-
-Running Locally
-
-
-
-Backend
-
-
-
-
-
-
-
-Install the backend dependencies:
-
-
-
-
-
-
-
-pip install -r miqyas\_api/requirements.txt
-
-
-
-
-
-
-
-Create:
-
-
-
-
-
-
-
-miqyas\_api/.env
-
-
-
-
-
-
-
-and add your OpenAI API key:
-
-
-
-
-
-
-
-OPENAI\_API\_KEY=your\_api\_key\_here
-
-
-
-
-
-
-
-Start the API:
-
-
-
-
-
-
-
-uvicorn miqyas\_api.main:app --reload
-
-
-
-Frontend
-
-
-
+1. Navigate to the UI directory and install dependencies:
+```bash
 cd miqyas-ui
-
-
-
 npm install
+```
 
-
-
+2. Start the development server:
+```bash
 npm run dev
+```
 
+---
 
+## Security Safeguards
 
-Security
+* **In-Memory ZIP Extraction:** Archives are unpacked directly in memory to prevent persistent storage leaks.
+* **Input Boundaries:** Enforced repository size limits (20 MB) and strict character budgets (80,000 characters).
+* **Extension Whitelist:** Restricts processing to supported code extensions only.
+* **Dependency & Secret Filtering:** Automatic exclusion of dependency directories (`node_modules`, `venv`, etc.) and `.env` secret files.
+* **Key Isolation:** Environment-based API key storage ensuring credentials are never exposed in source control.
 
+---
 
+## Academic Project
 
+Miqyas AI was developed as a Computer Science graduation project at **Umm Al-Qura University**[cite: 1].
 
-
-
-
-Miqyas includes several safeguards when processing uploaded repositories:
-
-
-
-
-
-
-
-In-memory ZIP extraction
-
-
-
-Repository size limitation
-
-
-
-Source-code character budget
-
-
-
-Supported-extension whitelist
-
-
-
-Exclusion of dependency directories and .env files
-
-
-
-Environment-based API key management
-
-
-
-
-
-
-
-API keys and environment files are intentionally excluded from the repository.
-
-
-
-
-
-
-
-Future Work
-
-
-
-
-
-
-
-Future development directions include:
-
-
-
-
-
-
-
-Dynamic Application Security Testing (DAST)
-
-
-
-Sandboxed runtime analysis
-
-
-
-Cross-file data-flow analysis
-
-
-
-CI/CD integration
-
-
-
-GitHub Actions integration
-
-
-
-Pull-request compliance gates
-
-
-
-Academic Project
-
-
-
-
-
-
-
-Miqyas AI was developed as a Computer Science graduation project at Umm Al-Qura University.
-
-
-
-
-
-
-
-Author: Reem Alwafi
-
-
-
-Department: Computer Science
-
-
-
-Date: June 2026
-
+* **Author:** Reem Alwafi
+* **Department:** Computer Science
+* **Date:** June 2026
