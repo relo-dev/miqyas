@@ -1,4 +1,4 @@
-\# Miqyas AI
+﻿# Miqyas AI
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-\### Automated Static Code Analysis \& DGA Compliance Evaluator for Saudi Government Applications
+### Automated Static Code Analysis & DGA Compliance Evaluator for Saudi Government Applications
 
 
 
@@ -30,7 +30,7 @@ It combines AI-assisted source-code analysis with deterministic scoring and loca
 
 
 
-\---
+---
 
 
 
@@ -38,7 +38,7 @@ It combines AI-assisted source-code analysis with deterministic scoring and loca
 
 
 
-\## Overview
+## Overview
 
 
 
@@ -70,7 +70,7 @@ Miqyas evaluates submitted source-code repositories across four weighted dimensi
 
 
 
-| Clean Code \& Architecture | 25% |
+| Clean Code & Architecture | 25% |
 
 
 
@@ -90,7 +90,7 @@ The system identifies potential issues, calculates pillar scores, applies mandat
 
 
 
-\---
+---
 
 
 
@@ -98,7 +98,7 @@ The system identifies potential issues, calculates pillar scores, applies mandat
 
 
 
-\## Key Features
+## Key Features
 
 
 
@@ -106,47 +106,47 @@ The system identifies potential issues, calculates pillar scores, applies mandat
 
 
 
-\- AI-powered static source-code analysis
+- AI-powered static source-code analysis
 
 
 
-\- Saudi-specific DGA and NDMO compliance evaluation
+- Saudi-specific DGA and NDMO compliance evaluation
 
 
 
-\- Cybersecurity and performance analysis
+- Cybersecurity and performance analysis
 
 
 
-\- Clean-code and architecture assessment
+- Clean-code and architecture assessment
 
 
 
-\- Deterministic weighted scoring
+- Deterministic weighted scoring
 
 
 
-\- Mandatory security and compliance override rules
+- Mandatory security and compliance override rules
 
 
 
-\- Structured JSON responses
+- Structured JSON responses
 
 
 
-\- Secure in-memory repository extraction
+- Secure in-memory repository extraction
 
 
 
-\- 20 MB upload limit
+- 20 MB upload limit
 
 
 
-\- 80,000-character evaluation budget
+- 80,000-character evaluation budget
 
 
 
-\- Interactive evaluation dashboard
+- Interactive evaluation dashboard
 
 
 
@@ -154,7 +154,7 @@ The system identifies potential issues, calculates pillar scores, applies mandat
 
 
 
-\---
+---
 
 
 
@@ -162,7 +162,7 @@ The system identifies potential issues, calculates pillar scores, applies mandat
 
 
 
-\## Architecture
+## Architecture
 
 
 
@@ -170,13 +170,13 @@ The system identifies potential issues, calculates pillar scores, applies mandat
 
 
 
-!\[Miqyas AI Architecture](docs/images/architecture.png)
+![Miqyas AI Architecture](docs/images/architecture.png)
 
 
 
 
 
-\*\*Analysis pipeline:\*\*
+**Analysis pipeline:**
 
 
 
@@ -190,7 +190,7 @@ Source Repository
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
@@ -198,7 +198,7 @@ Next.js Frontend
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
@@ -206,15 +206,15 @@ FastAPI Backend
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
-In-Memory Extraction \\\& Filtering
+In-Memory Extraction \& Filtering
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
@@ -222,7 +222,7 @@ OpenAI GPT-4o
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
@@ -230,15 +230,15 @@ Structured JSON Evaluation
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
-Weighted Scoring \\\& Override Rules
+Weighted Scoring \& Override Rules
 
 
 
-\&#x20;      ↓
+&#x20;      â†“
 
 
 
@@ -246,7 +246,7 @@ Results Dashboard
 
 
 
-AI \\\& Scoring
+AI \& Scoring
 
 
 
@@ -302,7 +302,7 @@ and returns structured JSON:
 
 
 
-response\\\_format={"type": "json\\\_object"}
+response\_format={"type": "json\_object"}
 
 
 
@@ -322,19 +322,19 @@ Overall Score =
 
 
 
-0.30 × Cybersecurity
+0.30 أ— Cybersecurity
 
 
 
-\\+ 0.25 × Performance
++ 0.25 أ— Performance
 
 
 
-\\+ 0.25 × Clean Code
++ 0.25 أ— Clean Code
 
 
 
-\\+ 0.20 × DGA Compliance
++ 0.20 أ— DGA Compliance
 
 
 
@@ -382,13 +382,13 @@ Golden Dataset	59 samples
 
 
 
-Analysis Time	8–14 seconds
+Analysis Time	8â€“14 seconds
 
 
 
 Screenshots
 
-!\[Miqyas Upload Interface](docs/images/upload-interface.png)
+![Miqyas Upload Interface](docs/images/upload-interface.png)
 
 Repository Upload
 
@@ -396,7 +396,7 @@ Repository Upload
 
 
 
-!\[Miqyas Results Dashboard](docs/images/results-dashboard.png)
+![Miqyas Results Dashboard](docs/images/results-dashboard.png)
 
 Evaluation Dashboard
 
@@ -404,7 +404,7 @@ Evaluation Dashboard
 
 
 
-!\[Miqyas Detailed Results](docs/images/results-details.png)
+![Miqyas Detailed Results](docs/images/results-details.png)
 
 Detailed Findings
 
@@ -482,7 +482,7 @@ python-multipart
 
 
 
-AI \\\& Data
+AI \& Data
 
 
 
@@ -518,91 +518,91 @@ MiqyasProjectFinal/
 
 
 
-│
+â”‚
 
 
 
-├── miqyas.py
+â”œâ”€â”€ miqyas.py
 
 
 
-├── miqyas\\\_api/
+â”œâ”€â”€ miqyas\_api/
 
 
 
-│   ├── analyzer.py
+â”‚   â”œâ”€â”€ analyzer.py
 
 
 
-│   ├── extractor.py
+â”‚   â”œâ”€â”€ extractor.py
 
 
 
-│   ├── main.py
+â”‚   â”œâ”€â”€ main.py
 
 
 
-│   ├── prompt.py
+â”‚   â”œâ”€â”€ prompt.py
 
 
 
-│   └── requirements.txt
+â”‚   â””â”€â”€ requirements.txt
 
 
 
-│
+â”‚
 
 
 
-├── miqyas-ui/
+â”œâ”€â”€ miqyas-ui/
 
 
 
-├── docs/
+â”œâ”€â”€ docs/
 
 
 
-│   └── images/
+â”‚   â””â”€â”€ images/
 
 
 
-│       ├── architecture.png
+â”‚       â”œâ”€â”€ architecture.png
 
 
 
-│       ├── upload-interface.png
+â”‚       â”œâ”€â”€ upload-interface.png
 
 
 
-│       ├── results-dashboard.png
+â”‚       â”œâ”€â”€ results-dashboard.png
 
 
 
-│       └── results-details.png
+â”‚       â””â”€â”€ results-details.png
 
 
 
-│
+â”‚
 
 
 
-├── miqyas\\\_test\\\_public.jsonl
+â”œâ”€â”€ miqyas\_test\_public.jsonl
 
 
 
-├── miqyas\\\_evaluation\\\_results\\\_public.txt
+â”œâ”€â”€ miqyas\_evaluation\_results\_public.txt
 
 
 
-├── system\\\_prompt.txt
+â”œâ”€â”€ system\_prompt.txt
 
 
 
-├── requirements.txt
+â”œâ”€â”€ requirements.txt
 
 
 
-└── README.md
+â””â”€â”€ README.md
 
 
 
@@ -626,7 +626,7 @@ Install the backend dependencies:
 
 
 
-pip install -r miqyas\\\_api/requirements.txt
+pip install -r miqyas\_api/requirements.txt
 
 
 
@@ -642,7 +642,7 @@ Create:
 
 
 
-miqyas\\\_api/.env
+miqyas\_api/.env
 
 
 
@@ -658,7 +658,7 @@ and add your OpenAI API key:
 
 
 
-OPENAI\\\_API\\\_KEY=your\\\_api\\\_key\\\_here
+OPENAI\_API\_KEY=your\_api\_key\_here
 
 
 
@@ -674,7 +674,7 @@ Start the API:
 
 
 
-uvicorn miqyas\\\_api.main:app --reload
+uvicorn miqyas\_api.main:app --reload
 
 
 
@@ -811,6 +811,4 @@ Department: Computer Science
 
 
 Date: June 2026
-
-
 
